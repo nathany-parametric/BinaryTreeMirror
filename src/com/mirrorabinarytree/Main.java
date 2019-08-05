@@ -48,6 +48,7 @@ public class Main {
         System.out.println("After mirroring.");
         InOrder(f);
 	}
+	
     public static void SwapChildren(Node root)
     {
         Node temp = root.left;
