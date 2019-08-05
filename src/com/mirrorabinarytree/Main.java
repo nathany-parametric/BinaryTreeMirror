@@ -27,7 +27,7 @@ public class Main {
       i.left = h;
 
       System.out.println("Before mirroring.");
-      InOrder(f);
+      inOrder(f);
 
       Queue<Node> queue = new LinkedList<>();
       queue.add(f);
@@ -41,23 +41,23 @@ public class Main {
             queue.add(tempNode.right);
          }
 
-         SwapChildren(tempNode);
+         swapChildren(tempNode);
       }
 
       System.out.println("After mirroring.");
-      InOrder(f);
+      inOrder(f);
    }
 
-   public static void SwapChildren(Node root) {
+   public static void swapChildren(Node root) {
       Node temp = root.left;
       root.left = root.right;
       root.right = temp;
    }
 
-   public static void InOrder(Node root) {
+   public static void inOrder(Node root) {
       while (true) {
          if (root != null) {
-            InOrder(root.left);
+            inOrder(root.left);
             System.out.println(root.data);
             root = root.right;
             continue;
