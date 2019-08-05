@@ -1,11 +1,10 @@
-package mirrorABinaryTree;
+package com.mirrorabinarytree;
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class Main {
 
 	public static void main(String[] args) {
-		
 		Node a = new Node("A");
 		Node b = new Node("B");
 		Node c = new Node("C");
@@ -16,15 +15,16 @@ public class Main {
         Node h = new Node("H");
         Node i = new Node("I");
 
-        f.Left = b;
-        f.Right = g;
-        b.Left = a;
-        b.Right = d;
-        d.Left = c;
-        d.Right = e;
-        g.Right = i;
-        i.Left = h;
+        f.left = b;
+        f.right = g;
+        b.left = a;
+        b.right = d;
+        d.left = c;
+        d.right = e;
+        g.right = i;
+        i.left = h;
 
+        System.out.println("Before mirroring.");
         InOrder(f);
 
         Queue<Node> queue = new LinkedList<>();
@@ -32,28 +32,27 @@ public class Main {
         while (!queue.isEmpty())
         {
             Node tempNode = queue.remove();
-            if (tempNode.Left != null)
+            if (tempNode.left != null)
             {
-                queue.add(tempNode.Left);
+                queue.add(tempNode.left);
             }
 
-            if (tempNode.Right != null)
+            if (tempNode.right!= null)
             {
-                queue.add(tempNode.Right);
+                queue.add(tempNode.right);
             }
 
             SwapChildren(tempNode);
         }
 
+        System.out.println("After mirroring.");
         InOrder(f);
-		System.out.println("Hello world!");
-
 	}
     public static void SwapChildren(Node root)
     {
-        Node temp = root.Left;
-        root.Left = root.Right;
-        root.Right = temp;
+        Node temp = root.left;
+        root.left = root.right;
+        root.right = temp;
     }
     
     public static void InOrder(Node root)
@@ -62,12 +61,11 @@ public class Main {
         {
             if (root != null)
             {
-                InOrder(root.Left);
-                System.out.println(root.Data + " ");
-                root = root.Right;
+                InOrder(root.left);
+                System.out.println(root.data);
+                root = root.right;
                 continue;
             }
-
             break;
         }
     }
